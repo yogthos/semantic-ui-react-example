@@ -1,0 +1,12 @@
+{:source-paths ["src"]
+ :dependencies [[binaryage/devtools "0.9.10"]
+                [nrepl "0.6.0"]
+                [reagent "0.8.1"]]
+ :builds       {:app {:target     :browser
+                      :output-dir "public/js"
+                      :asset-path "/js"
+                      :modules    {:app {:entries [semantic-ui-example.core]}}
+                      :devtools   {:after-load semantic-ui-example.core/mount-root}}}
+
+ :dev-http     {3000 {:root    "public"
+                      :handler user/app}}}
